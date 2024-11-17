@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Minimal Page</title>
+    <style>
+        /* Base styles */
+        body {
+            background-color: lightpink;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        #container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+            transform-origin: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+            animation: zoomIn 1.5s ease-in-out forwards;
+            transform-origin: center;
+        }
+
+        button {
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: bounceIn 1.5s ease-in-out forwards;
+            transform-origin: center;
+        }
+
+        button:hover {
+            background-color: #ffd6e3;
+            transform: scale(1.1);
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5) translateY(-50px);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.2) translateY(10px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">PRESENTING OUR UPCOMING UNDERATED RISING MODEL</h1>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const title = document.getElementById('title');
+
+        // Change title with smooth fade out/in after 3 seconds
+        setTimeout(() => {
+            title.style.animation = 'fadeOut 1s ease-in-out forwards';
+            setTimeout(() => {
+                title.textContent = "PRESENTING YOU......";
+                title.style.animation = 'fadeIn 1s ease-in-out forwards';
+            }, 1000);
+        }, 3000);
+
+        // Replace title with button after 6 seconds
+        setTimeout(() => {
+            container.style.animation = 'fadeOut 1s ease-in-out forwards';
+            setTimeout(() => {
+                container.innerHTML = `
+                    <a href="https://www.tiktok.com/@nadinemamlouk?_t=8rPwvUjMmyi&_r=1">
+                        <button>FUTURE MODEL</button>
+                    </a>`;
+                container.style.animation = 'fadeIn 1s ease-in-out forwards';
+            }, 1000);
+        }, 6000);
+    </script>
+</body>
+</html>
